@@ -1,5 +1,12 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
+(if window-system
+    (setq default-frame-alist
+          `((top . ,(* (frame-char-height) 4))
+            (left . ,(* (frame-char-width) 5))
+            (width . ,(- (/ (x-display-pixel-width) (frame-char-width)) 10))
+            (height . ,(- (/ (x-display-pixel-height) (frame-char-height)) 12)))))
+
 (setq mac-option-modifier nil
       mac-command-modifier 'meta
       x-select-enable-clipboard t)
