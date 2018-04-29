@@ -2,10 +2,10 @@
 
 (if window-system
     (setq default-frame-alist
-          `((top . ,(* (frame-char-height) 4))
-            (left . ,(* (frame-char-width) 5))
-            (width . ,(- (/ (x-display-pixel-width) (frame-char-width)) 10))
-            (height . ,(- (/ (x-display-pixel-height) (frame-char-height)) 12)))))
+          `((top . ,(truncate (* (+functions/find-monitor-height) 0.05)))
+            (left . ,(truncate (* (+functions/find-monitor-width) 0.05)))
+            (width . ,(truncate (* (/ (+functions/find-monitor-width) (frame-char-width)) 0.9)))
+            (height . ,(truncate (* (/ (+functions/find-monitor-height) (frame-char-height)) 0.9))))))
 
 (setq mac-option-modifier nil
       mac-command-modifier 'meta
